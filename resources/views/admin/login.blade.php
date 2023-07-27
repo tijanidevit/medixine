@@ -1,88 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="Medicine admin login">
-    <meta name="author" content="TMA">
-    <meta name="keywords" content="medicine management, catalogue, medical">
+    <meta name="description" content="Fastkart">
+    <meta name="keywords" content="Fastkart">
+    <meta name="author" content="Fastkart">
+    <link rel="icon" href="landing/assets/images/favicon/1.png" type="image/x-icon">
+    <title>Log In</title>
 
-    <title>Medicine - Admin Login</title>
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="landing/assets/css/vendors/bootstrap.css">
 
-    <link rel="stylesheet" href="admin/assets/vendors/core/core.css">
-    <link rel="stylesheet" href="admin/assets/fonts/feather-font/css/iconfont.css">
-    <link rel="stylesheet" href="admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="admin/assets/css/demo1/style.min.css">
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="landing/assets/css/vendors/font-awesome.css">
 
-    <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="landing/assets/css/vendors/feather-icon.css">
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="landing/assets/css/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="landing/assets/css/vendors/slick/slick-theme.css">
+
+    <!-- Iconly css -->
+    <link rel="stylesheet" type="text/css" href="landing/assets/css/bulk-style.css">
+
+    <!-- Template css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="landing/assets/css/style.css">
 </head>
+
 <body>
-    <div class="main-wrapper">
-        <div class="page-wrapper full-page">
-            <div class="page-content d-flex align-items-center justify-content-center">
 
-                <div class="row w-100 mx-0 auth-page">
-                    <div class="col-md-8 col-xl-6 mx-auto">
-                        <div class="card">
-                            <div class="row">
-                                <div class="col-md-4 pe-md-0">
-                                    <div class="auth-side-wrapper">
+    <!-- Loader Start -->
+    <div class="fullpage-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- Loader End -->
 
-                                    </div>
-                                </div>
-                                <div class="col-md-8 ps-md-0">
-                                    <div class="auth-form-wrapper px-4 py-5">
-                                        <a href="#" class="noble-ui-logo d-block mb-2">Medi<span>cine</span></a>
-                                        <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
-                                        <form class="forms-sample" method="POST" action="{{ route('post_login') }}">
-                                            @csrf
-                                            <div class="mb-3">
-                                                <label for="userEmail" class="form-label">Email address</label>
-                                                <input value="" type="email" name="email" required class="form-control" id="userEmail" placeholder="Email">
-                                                @error('email')
-                                                <p class="text-danger mt-1">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="userPassword" class="form-label">Password</label>
-                                                <input type="password" name="password" required class="form-control" id="userPassword" autocomplete="current-password" placeholder="Password">
-                                                @error('password')
-                                                <p class="text-danger mt-1">{{ $message }}</p>
-                                                @enderror
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input type="checkbox" class="form-check-input" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">
-                                                    Remember me
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <button type="submit" class="btn btn-primary mt-3 mb-2 form-control">
-                                                    <i class="btn-icon-prepend" data-feather="lock"></i>
-                                                    Login
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <section class="breadscrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadscrumb-contain">
+                        <h2 class="mb-2">Log In</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active">Log In</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- log in section start -->
+    <section class="log-in-section background-image-2 section-b-space">
+        <div class="container-fluid-lg w-100">
+            <div class="row">
+                <div class="col-xxl-6 col-xl-5 col-lg-6 d-lg-block d-none ms-auto">
+                    <div class="image-contain">
+                        <img src="landing/assets/images/inner-page/log-in.png" class="img-fluid" alt="">
                     </div>
                 </div>
 
+                <div class="col-xxl-4 col-xl-5 col-lg-6 col-sm-8 mx-auto">
+                    <div class="log-in-box">
+                        <div class="log-in-title">
+                            <h3 class="mb-3 text-center">Jendol Admin</h3>
+                            <h4>Log In Your Account</h4>
+                        </div>
+
+                        <div class="input-box">
+                            <form class="row g-4" method='post' action={{route('post_login')}}>
+                                @csrf
+                                
+                                <div class="col-12">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="email" name="email" value="{{old('email')}}" class="form-control" id="email" placeholder="Email Address">
+                                        <label for="email">Email Address</label>
+                                        @error('email')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating theme-form-floating log-in-form">
+                                        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                                        <label for="password">Password</label>
+                                        @error('password')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-animation w-100 justify-content-center" type="submit">Log
+                                        In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- log in section end -->
 
-    <script src="admin/assets/vendors/core/core.js"></script>
 
-    <script src="admin/assets/vendors/feather-icons/feather.min.js"></script>
-    <script src="admin/assets/js/template.js"></script>
+    <!-- Bg overlay Start -->
+    <div class="bg-overlay"></div>
+    <!-- Bg overlay End -->
+
+    <!-- latest jquery-->
+    <script src="landing/assets/js/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap js-->
+    <script src="landing/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="landing/assets/js/bootstrap/popper.min.js"></script>
+
+    <!-- feather icon js-->
+    <script src="landing/assets/js/feather/feather.min.js"></script>
+    <script src="landing/assets/js/feather/feather-icon.js"></script>
+
+    <!-- Slick js-->
+    <script src="landing/assets/js/slick/slick.js"></script>
+    <script src="landing/assets/js/slick/slick-animation.min.js"></script>
+    <script src="landing/assets/js/slick/custom_slick.js"></script>
+
+    <!-- Lazyload Js -->
+    <script src="landing/assets/js/lazysizes.min.js"></script>
+
+    <!-- script js -->
+    <script src="landing/assets/js/script.js"></script>
+
+    <!-- thme setting js -->
+    <script src="landing/assets/js/theme-setting.js"></script>
 </body>
 </html>

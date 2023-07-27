@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return to_route('get_login');
+    // return view('welcome');
 });
 
 
@@ -24,7 +25,7 @@ Route::prefix('login')->group(function () {
     Route::post('',[LoginController::class,'loginAction'])->name('post_login');
 });
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('dashboard',[LoginController::class,'getLoginPage'])->name('dashboard');
 });
 
