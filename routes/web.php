@@ -24,3 +24,7 @@ Route::prefix('login')->group(function () {
     Route::post('',[LoginController::class,'loginAction'])->name('post_login');
 });
 
+Route::prefix('admin')->group(function () {
+    Route::get('dashboard',[LoginController::class,'getLoginPage'])->name('dashboard');
+});
+
