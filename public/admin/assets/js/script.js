@@ -100,14 +100,14 @@
             $(".page-wrapper").removeClass("offcanvas-bookmark");
         }
     });
-    $(".search-full input").keyup(function (e) {
-        console.log(e.target.value);
-        if (e.target.value) {
-            $("body").addClass("offcanvas");
-        } else {
-            $("body").removeClass("offcanvas");
-        }
-    });
+    // $(".search-full input").keyup(function (e) {
+    //     console.log(e.target.value);
+    //     if (e.target.value) {
+    //         $("body").addClass("offcanvas");
+    //     } else {
+    //         $("body").removeClass("offcanvas");
+    //     }
+    // });
 
     $('body').keydown(function (e) {
         if (e.keyCode == 27) {

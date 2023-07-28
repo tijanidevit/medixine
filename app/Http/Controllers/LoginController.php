@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Services\LoginService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse ;
