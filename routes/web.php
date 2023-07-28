@@ -16,22 +16,22 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', function () {
-    return to_route('get_login');
+    return to_route('login');
     // return view('welcome');
 });
 
 
 Route::prefix('login')->group(function () {
-    Route::get('',[LoginController::class,'getLoginPage'])->name('get_login');
-    Route::post('',[LoginController::class,'loginAction'])->name('post_login');
+    Route::get('',[LoginController::class,'getLoginPage'])->name('login');
+    Route::post('',[LoginController::class,'loginAction'])->name('loginAction');
 });
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('dashboard',[DashboardController::class,'getDashboardPage'])->name('dashboard');
     Route::get('search',[DashboardController::class,'getSearchResult'])->name('search');
-    Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notidications');
+    Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notifications');
 
-    Route::get('settings',[SettingController::class,'getSettingsPage'])->name('get_settings');
+    Route::get('settings',[SettingController::class,'getSettingsPage'])->name('settings');
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
 });
 

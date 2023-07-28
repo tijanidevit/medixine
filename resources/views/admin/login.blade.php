@@ -88,9 +88,9 @@
                         </div>
 
                         <div class="input-box">
-                            <form class="row g-4" method='post' action={{route('post_login')}}>
+                            <form class="row g-4" method='post' action={{route('loginAction')}}>
                                 @csrf
-                                
+
                                 <div class="col-12">
                                     <div class="form-floating theme-form-floating log-in-form">
                                         <input type="email" name="email" value="{{old('email')}}" class="form-control" id="email" placeholder="Email Address">
