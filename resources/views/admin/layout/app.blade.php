@@ -15,7 +15,12 @@
 
         <div class="page-body-wrapper">
             @include('admin.layout.sidebar')
-            @yield('body')
+
+            <div class="page-body">
+                <div class="container-fluid">
+                    @yield('body')
+                </div>
+            </div>
         </div>
 
         @include('admin.layout.footer')

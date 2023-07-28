@@ -3,15 +3,15 @@
         <div class="header-logo-wrapper p-0">
             <div class="logo-wrapper">
                 <a href="{{route('dashboard')}}">
-                    {{-- <img class="img-fluid main-logo" src="assets/images/logo/1.png" alt="logo">
-                    <img class="img-fluid white-logo" src="assets/images/logo/1-white.png" alt="logo"> --}}
+                    {{-- <img class="img-fluid main-logo" src="{{asset('admin/assets/images/logo/1.png')}}" alt="logo">
+                    <img class="img-fluid white-logo" src="{{asset('admin/assets/images/logo/1-white.png')}}" alt="logo"> --}}
                     Jendol
                 </a>
             </div>
             <div class="toggle-sidebar">
                 <i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
                 <a href="{{route('dashboard')}}">
-                    {{-- <img src="assets/images/logo/1.png" class="img-fluid" alt=""> --}}
+                    {{-- <img src="{{asset('admin/assets/images/logo/1.png')}}" class="img-fluid" alt=""> --}}
                     Jendol
                 </a>
             </div>
@@ -53,7 +53,7 @@
                 </li>
                 <li class="profile-nav onhover-dropdown pe-0 me-0">
                     <div class="media profile-media">
-                        <img class="user-profile rounded-circle" src="assets/images/users/4.jpg" alt="">
+                        <img class="user-profile rounded-circle" src="{{asset('admin/assets/images/users/4.jpg')}}" alt="">
                         <div class="user-name-hide media-body">
                             <span>{{auth()->user()->name}}</span>
                             <p class="mb-0 font-roboto">{{auth()->user()->role}}<i class="middle ri-arrow-down-s-line"></i></p>

@@ -2,7 +2,7 @@ if (localStorage.getItem("color"))
     $("#color").attr("href", "assets/css/" + localStorage.getItem("color") + ".css");
 if (localStorage.getItem("dark"))
     $("body").attr("class", "dark-only");
-$('<div class="customizer-links"><button class="rtl-btn">RTL</button></div>').appendTo($('body'));
+// $('<div class="customizer-links"><button class="rtl-btn">RTL</button></div>').appendTo($('body'));
 (function () {})();
 //live customizer js
 $(document).ready(function () {

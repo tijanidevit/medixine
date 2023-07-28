@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\LoginService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\RedirectResponse ;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller

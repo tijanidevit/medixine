@@ -3,62 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\ProductService;
+use App\Services\CategoryService;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\AddProductRequest;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct(protected ProductService $productService,protected CategoryService $categoryService) {}
+
+    public function index() : View
     {
-        //
+        $products = $this->productService->getAllProducts();
+        return view('admin.products.index', compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create() : View
     {
-        //
+        $categories = $this->categoryService->getCategories();
+        return view('admin.products.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(AddProductRequest $request): RedirectResponse
     {
-        //
+        $this->productService->addProduct($request->validated());
+        return to_route('product.index')->with('success', 'Product added successfully!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Product $product)
     {
-        //
+        $this->productService->getProduct($product);
+        return to_route('product.index')->with('success', 'Product added successfully!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Product $product)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Product $product)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
         //

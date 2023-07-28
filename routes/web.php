@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -32,6 +33,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notifications');
 
     Route::get('settings',[SettingController::class,'getSettingsPage'])->name('settings');
+
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
+
+    Route::prefix('products')->as('product.')->group(function () {
+        Route::get('', [ProductController::class, 'index'])->name('index');
+        Route::get('new', [ProductController::class, 'create'])->name('create');
+        Route::post('', [ProductController::class, 'store'])->name('store');
+        Route::delete('{product}', [ProductController::class, 'delete'])->name('delete');
+        Route::get('{product}', [ProductController::class, 'show'])->name('show');
+    });
 });
 
