@@ -17,6 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->string('batch_no');
             $table->decimal('price');
+            $table->integer('quantity');
+            $table->integer('remaining_quantity')->default(10);
             $table->timestamp('purchase_date')->nullable();
             $table->timestamp('expiry_date')->nullable();
             $table->timestamps();

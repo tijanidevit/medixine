@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Setting;
 use Illuminate\Database\Seeder;
 
 class SettingSeeder extends Seeder
@@ -12,6 +12,9 @@ class SettingSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Setting::create([
+            'phone' => '08148977610',
+            'email' => 'thenewxpat@gmail.com'
+        ]);
     }
 }

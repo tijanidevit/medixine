@@ -96,164 +96,25 @@
                     <div class="card o-hidden card-hover">
                         <div class="card-header border-0 pb-1">
                             <div class="card-header-title p-0">
-                                <h4>Category</h4>
+                                <h4>Categories</h4>
                             </div>
                         </div>
                         <div class="card-body p-0">
                             <div class="category-slider no-arrow">
+                                @forelse ($data['recentCategories'] as $category)
                                 <div>
                                     <div class="dashboard-category">
                                         <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/vegetable.svg" class="img-fluid" alt="">
+                                            <img src="{{$category->image}}" class="img-fluid" alt="">
                                         </a>
                                         <a href="javascript:void(0)" class="category-name">
-                                            <h6>Vegetables & Fruit</h6>
+                                            <h6>{{$category->name}}</h6>
                                         </a>
                                     </div>
                                 </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/cup.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Beverages</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/meats.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Meats & Seafood</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/breakfast.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Breakfast</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/frozen.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Frozen Foods</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/milk.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Milk & Dairies</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/pet.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Pet Food</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/vegetable.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Vegetables & Fruit</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/cup.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Beverages</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/meats.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Meats & Seafood</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/breakfast.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Breakfast</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/frozen.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Frozen Foods</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/milk.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Milk & Dairies</h6>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div class="dashboard-category">
-                                        <a href="javascript:void(0)" class="category-image">
-                                            <img src="assets/svg/pet.svg" class="img-fluid" alt="">
-                                        </a>
-                                        <a href="javascript:void(0)" class="category-name">
-                                            <h6>Pet Food</h6>
-                                        </a>
-                                    </div>
-                                </div>
+                                @empty
+                                    <p>No category added yet!</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>
@@ -266,7 +127,7 @@
                     <div class="card o-hidden card-hover">
                         <div class="card-header card-header-top card-header--2 px-0 pt-0">
                             <div class="card-header-title">
-                                <h4>Recent Orders</h4>
+                                <h4>Expiring within 3 months</h4>
                             </div>
                         </div>
 
@@ -275,164 +136,55 @@
                                 <div class="table-responsive">
                                     <table class="best-selling-table table border-0">
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="best-product-box">
-                                                        <div class="product-name">
-                                                            <h5>Aata Buscuit</h5>
-                                                            <h6>#64548</h6>
+                                            @forelse ($data['expiringStocks'] as $stock)
+                                                <tr>
+                                                    <td>
+                                                        <div class="best-product-box">
+                                                            <div class="product-name">
+                                                                <h5>{{$stock->product?->name}}</h5>
+                                                                <h6>{{$stock->batch_no}}</h6>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Date Placed</h6>
-                                                        <h5>5/1/22</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Price</h6>
-                                                        <h5>$250.00</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Order Status</h6>
-                                                        <h5>Completed</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Payment</h6>
-                                                        <h5 class="text-danger">Unpaid</h5>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="best-product-box">
-                                                        <div class="product-name">
-                                                            <h5>Aata Buscuit</h5>
-                                                            <h6>26-08-2022</h6>
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Purchase date</h6>
+                                                            <h5>{{$stock->formatDate('purchase_date')}}</h5>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Date Placed</h6>
-                                                        <h5>5/1/22</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Price</h6>
-                                                        <h5>$250.00</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Order Status</h6>
-                                                        <h5>Completed</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Payment</h6>
-                                                        <h5 class="theme-color">Paid</h5>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="best-product-box">
-                                                        <div class="product-name">
-                                                            <h5>Aata Buscuit</h5>
-                                                            <h6>26-08-2022</h6>
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Expiry date</h6>
+                                                            <h5>{{$stock->formatDate('expiry_date')}} ({{$stock->expiry_difference}} days)</h5>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Date Placed</h6>
-                                                        <h5>5/1/22</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Price</h6>
-                                                        <h5>$250.00</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Order Status</h6>
-                                                        <h5>Completed</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Payment</h6>
-                                                        <h5 class="theme-color">Paid</h5>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td>
-                                                    <div class="best-product-box">
-                                                        <div class="product-name">
-                                                            <h5>Aata Buscuit</h5>
-                                                            <h6>26-08-2022</h6>
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Ordered quantity</h6>
+                                                            <h5>{{$stock->quantity}}</h5>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Remaining quantity</h6>
+                                                            <h5>{{$stock->remaining_quantity}}</h5>
+                                                        </div>
+                                                    </td>
 
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Date Placed</h6>
-                                                        <h5>5/1/22</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Price</h6>
-                                                        <h5>$250.00</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Order Status</h6>
-                                                        <h5>Completed</h5>
-                                                    </div>
-                                                </td>
-
-                                                <td>
-                                                    <div class="product-detail-box">
-                                                        <h6>Payment</h6>
-                                                        <h5 class="theme-color">Paid</h5>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Price</h6>
+                                                            <h5>&#8358;{{$stock->price}}</h5>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <P>No expiring stocks</P>
+                                            @endforelse
                                         </tbody>
                                     </table>
                                 </div>
@@ -441,6 +193,77 @@
                     </div>
                 </div>
                 <!-- Recent orders end-->
+
+
+                <div class="col-xl-6">
+                    <div class="card o-hidden card-hover">
+                        <div class="card-header card-header-top card-header--2 px-0 pt-0">
+                            <div class="card-header-title">
+                                <h4>Recently added stocks</h4>
+                            </div>
+                        </div>
+
+                        <div class="card-body p-0">
+                            <div>
+                                <div class="table-responsive">
+                                    <table class="best-selling-table table border-0">
+                                        <tbody>
+                                            @forelse ($data['recentStocks'] as $stock)
+                                                <tr>
+                                                    <td>
+                                                        <div class="best-product-box">
+                                                            <div class="product-name">
+                                                                <h5>{{$stock->product?->name}}</h5>
+                                                                <h6>{{$stock->batch_no}}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Purchase date</h6>
+                                                            <h5>{{$stock->formatDate('purchase_date')}}</h5>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Expiry date</h6>
+                                                            <h5>{{$stock->formatDate('expiry_date')}} ({{$stock->expiry_difference}} days)</h5>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Ordered quantity</h6>
+                                                            <h5>{{$stock->quantity}}</h5>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Remaining quantity</h6>
+                                                            <h5>{{$stock->remaining_quantity}}</h5>
+                                                        </div>
+                                                    </td>
+
+                                                    <td>
+                                                        <div class="product-detail-box">
+                                                            <h6>Price</h6>
+                                                            <h5>&#8358;{{$stock->price}}</h5>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @empty
+                                                <P>No expiring stocks</P>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Container-fluid Ends-->

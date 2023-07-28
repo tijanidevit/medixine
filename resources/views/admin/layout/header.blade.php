@@ -55,8 +55,8 @@
                     <div class="media profile-media">
                         <img class="user-profile rounded-circle" src="assets/images/users/4.jpg" alt="">
                         <div class="user-name-hide media-body">
-                            <span>Jendol Supermarket</span>
-                            <p class="mb-0 font-roboto">Admin<i class="middle ri-arrow-down-s-line"></i></p>
+                            <span>{{auth()->user()->name}}</span>
+                            <p class="mb-0 font-roboto">{{auth()->user()->role}}<i class="middle ri-arrow-down-s-line"></i></p>
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">

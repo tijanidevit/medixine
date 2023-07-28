@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use App\Enums\UserRoleEnum;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Medicine Admin',
+        User::factory()->create([
+            'name' => 'Jendol Admin',
             'email' => 'admin@medicine.com',
-        ]);
+            'role' => UserRoleEnum::ADMIN,
+        ]); //Add Admin
+
+        User::factory(5)->create(); //Add sub admin
+
+        $this->call(CategorySeeder::class);
+        $this->call(ProductSeeder::class);
+        $this->call(SettingSeeder::class);
+        $this->call(StockSeeder::class);
     }
 }
