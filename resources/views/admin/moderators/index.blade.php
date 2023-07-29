@@ -29,6 +29,8 @@
                                 <tr>
                                     <th>Image</th>
                                     <th>Name</th>
+                                    <th>Email address</th>
+                                    <th>Date added</th>
                                     <th>Option</th>
                                 </tr>
                             </thead>
@@ -43,6 +45,8 @@
                                     </td>
 
                                     <td>{{$moderator->name}}</td>
+                                    <td>{{$moderator->email}}</td>
+                                    <td>{{$moderator->created_at->format('d/m/Y')}}</td>
 
                                     <td>
                                         <ul>
