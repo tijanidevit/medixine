@@ -5,7 +5,6 @@ namespace App\Models;
 use DateTime;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -65,17 +64,17 @@ class Stock extends Model
     //     'expiry_date'  => 'date:Y-m-d',
     // ];
 
-    public function setPurchaseDateAttribute( $value ) {
-        $this->attributes['purchase_date'] = (new Carbon($value))->format('d/m/y');
-    }
+    // public function setPurchaseDateAttribute( $value ) {
+    //     $this->attributes['purchase_date'] = (new Carbon($value))->format('d/m/y');
+    // }
 
-    public function setCreatedAtAttribute( $value ) {
-        $this->attributes['created_at'] = (new Carbon($value))->format('d/m/y');
-    }
+    // public function setCreatedAtAttribute( $value ) {
+    //     $this->attributes['created_at'] = (new Carbon($value))->format('d/m/y');
+    // }
 
-    public function setExpiryDateAttribute( $value ) {
-        $this->attributes['expiry_date'] = (new Carbon($value))->format('d/m/y');
-    }
+    // public function setExpiryDateAttribute( $value ) {
+    //     $this->attributes['expiry_date'] = (new Carbon($value))->format('d/m/y');
+    // }
 
     public function formatDate($date) : string {
         return (new Carbon($this->$date))->format('d/m/y');
@@ -94,4 +93,14 @@ class Stock extends Model
     {
         return $this->expiry_date > today() ? 'Valid' : 'Expired';
     }
+
+    // function setPurchaseDateAttribute ($value):void
+    // {
+    //     $this->attributes['purchase_date'] = Hash::make($value);
+    // }
+
+    // function setExpiryDateAttribute ($value):void
+    // {
+    //     $this->attributes['expiry_date'] = Hash::make($value);
+    // }
 }

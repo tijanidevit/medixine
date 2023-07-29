@@ -5,7 +5,6 @@ namespace App\Services;
 
 use App\Models\Product;
 use App\Traits\FileTrait;
-use App\Enums\UtilsEnum;
 use Illuminate\Database\Eloquent\Collection;
 
 class ProductService {
@@ -21,6 +20,10 @@ class ProductService {
 
     public function getProduct($product) : Product {
         return $product->load('stocks');
+    }
+
+    public function deleteProduct($product) : bool {
+        return $product->delete();
     }
 
     public function getProductStocks($product) : Collection {

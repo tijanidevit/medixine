@@ -48,7 +48,7 @@
                             </li>
 
                             <li>
-                                <a href="{{route('product.create')}}">Add New Products</a>
+                                <a href="{{route('product.create')}}">Add New Product</a>
                             </li>
                         </ul>
                     </li>
@@ -60,11 +60,27 @@
                         </a>
                         <ul class="sidebar-submenu">
                             <li>
-                                <a href="category.html">Category List</a>
+                                <a href="{{route('category.index')}}">Categories List</a>
                             </li>
 
                             <li>
-                                <a href="add-new-category.html">Add New Category</a>
+                                <a href="{{route('category.create')}}">Add New Category</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i class="ri-archive-line"></i>
+                            <span>Stock</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{route('stock.index')}}">Stocks</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('stock.create')}}">Add New Stock</a>
                             </li>
                         </ul>
                     </li>

@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('', [ProductController::class, 'index'])->name('index');
         Route::get('new', [ProductController::class, 'create'])->name('create');
         Route::post('', [ProductController::class, 'store'])->name('store');
-        Route::delete('{product}', [ProductController::class, 'delete'])->name('delete');
+        Route::delete('{product}', [ProductController::class, 'destroy'])->name('delete');
         Route::get('{product}', [ProductController::class, 'show'])->name('show');
     });
 
@@ -49,7 +50,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('', [StockController::class, 'index'])->name('index');
         Route::get('new', [StockController::class, 'create'])->name('create');
         Route::post('', [StockController::class, 'store'])->name('store');
-        Route::delete('{stock}', [StockController::class, 'delete'])->name('delete');
+        Route::delete('{stock}', [StockController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('categories')->as('category.')->group(function () {
+        Route::get('', [CategoryController::class, 'index'])->name('index');
+        Route::get('new', [CategoryController::class, 'create'])->name('create');
+        Route::post('', [CategoryController::class, 'store'])->name('store');
+        Route::get('{category}', [CategoryController::class, 'show'])->name('show');
+        Route::delete('{category}', [CategoryController::class, 'destroy'])->name('delete');
     });
 });
 

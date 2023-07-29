@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Services\ProductService;
 use App\Services\CategoryService;
 use Illuminate\Contracts\View\View;
@@ -18,13 +17,12 @@ class ProductController extends Controller
     public function index() : View
     {
         $products = $this->productService->getAllProducts();
-        // dd($products);
         return view('admin.products.index', compact('products'));
     }
 
     public function create() : View
     {
-        $categories = $this->categoryService->getCategories();
+        $categories = $this->categoryService->getAllCategories();
         return view('admin.products.create', compact('categories'));
     }
 
@@ -37,22 +35,13 @@ class ProductController extends Controller
     public function show(Product $product) : View
     {
         $product = $this->productService->getProduct($product);
-        $stocks = $this->productService->getProductStocks($product);
+        $stocks = $product->stocks;
         return view('admin.products.show', compact('product','stocks'));
-    }
-
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    public function update(Request $request, Product $product)
-    {
-        //
     }
 
     public function destroy(Product $product)
     {
-        //
+        $product = $this->productService->deleteProduct($product);
+        return to_route('product.index')->with('success', 'Product deleted successfully!');
     }
 }

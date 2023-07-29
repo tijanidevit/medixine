@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('added_by');
             $table->foreignIdFor(Category::class);
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('image');
             $table->timestamps();
         });
