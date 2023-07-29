@@ -38,7 +38,7 @@ class ExpiringProductNotification extends Notification implements ShouldQueue
     {
         $content = "<ul>";
         foreach ($this->data['stocks'] as $stock) {
-            $content.= $stock->product?->name . " with batch number $stock->batch_no purchased on $stock->purchase date will expire on $stock->created_at. There are $stock->remaining_quantity left";
+            $content.= $stock->product?->name . " with batch number $stock->batch_no purchased on $stock->purchase date will expire on $stock->created_at. There are $stock->remaining_quantity items left";
         }
 
         $content .= "</ul>";
