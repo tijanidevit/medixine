@@ -8,7 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SaleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ModeratorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,11 +83,11 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     });
 
     Route::prefix('moderators')->as('moderator.')->group(function () {
-        Route::get('', [UserController::class, 'index'])->name('index');
-        Route::get('new', [UserController::class, 'create'])->name('create');
-        Route::post('', [UserController::class, 'store'])->name('store');
-        Route::post('{user}', [UserController::class, 'store'])->name('show');
-        Route::delete('{user}', [UserController::class, 'destroy'])->name('delete');
+        Route::get('', [ModeratorController::class, 'index'])->name('index');
+        Route::get('new', [ModeratorController::class, 'create'])->name('create');
+        Route::post('', [ModeratorController::class, 'store'])->name('store');
+        Route::post('{user}', [ModeratorController::class, 'store'])->name('show');
+        Route::delete('{user}', [ModeratorController::class, 'destroy'])->name('delete');
     });
 });
 

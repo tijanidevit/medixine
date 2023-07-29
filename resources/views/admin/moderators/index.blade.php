@@ -14,7 +14,7 @@
                     <div class="right-options">
                         <ul>
                             <li>
-                                <a class="btn btn-solid" href="{{route('moderator.create')}}">Add Category</a>
+                                <a class="btn btn-solid" href="{{route('moderator.create')}}">Add Moderator</a>
                             </li>
                         </ul>
                     </div>
@@ -73,7 +73,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="remove-box">
-                                                    <p>Deleting <strong>{{$moderator->name}}</strong> will remove its reocrd and related records</p>
+                                                    <p>Deleting <strong>{{$moderator->name}}</strong> will remove their reocrd and related records</p>
                                                 </div>
                                             </div>
                                             <form class="modal-footer" method="POST" action="{{route('moderator.delete', $moderator->id)}}">

@@ -9,11 +9,12 @@ use App\Enums\UserRoleEnum;
 
 class ModeratorService {
     use FileTrait;
-    public function __construct(protected User $moderator) {
-        $this->moderator = $this->moderator->where('role', UserRoleEnum::SUB_ADMIN);
+    public $moderator;
+    public function __construct(protected User $user) {
+        $this->moderator = $this->user->where('role', UserRoleEnum::SUB_ADMIN);
     }
 
-    public function getAllCategories() : array|Collection {
+    public function getAllModerators() : array|Collection {
         return $this->moderator->orderBy('name')->get();
     }
 
