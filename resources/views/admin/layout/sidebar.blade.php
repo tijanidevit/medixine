@@ -108,7 +108,7 @@
                             </a>
                             <ul class="sidebar-submenu">
                                 <li>
-                                    <a href="{{route('settings')}}">Settings</a>
+                                    <a href="{{route('setting.index')}}">Settings</a>
                                 </li>
                             </ul>
                         </li>

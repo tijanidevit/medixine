@@ -6,6 +6,7 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('search',[DashboardController::class,'getSearchResult'])->name('search');
     Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notifications');
 
-    Route::get('settings',[SettingController::class,'getSettingsPage'])->name('settings');
+    // Route::get('settings',[SettingController::class,'getSettingsPage'])->name('settings');
 
     Route::get('logout',[LoginController::class,'logout'])->name('logout');
 
@@ -59,6 +60,13 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('', [CategoryController::class, 'store'])->name('store');
         Route::get('{category}', [CategoryController::class, 'show'])->name('show');
         Route::delete('{category}', [CategoryController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('settings')->as('setting.')->group(function () {
+        Route::get('', [SettingController::class, 'index'])->name('index');
+        Route::get('new', [SettingController::class, 'create'])->name('create');
+        Route::post('', [SettingController::class, 'store'])->name('store');
+        Route::delete('{setting}', [SettingController::class, 'destroy'])->name('delete');
     });
 });
 

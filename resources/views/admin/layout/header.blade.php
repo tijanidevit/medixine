@@ -61,7 +61,7 @@
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
                         <li>
-                            <a href="{{route('settings')}}">
+                            <a href="{{route('setting.index')}}">
                                 <i data-feather="settings"></i>
                                 <span>Settings</span>
                             </a>
