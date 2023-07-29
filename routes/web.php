@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('new', [SettingController::class, 'create'])->name('create');
         Route::post('', [SettingController::class, 'store'])->name('store');
         Route::delete('{setting}', [SettingController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('sales')->as('sale.')->group(function () {
+        Route::get('', [SaleController::class, 'index'])->name('index');
+        Route::get('new', [SaleController::class, 'create'])->name('create');
+        Route::post('', [SaleController::class, 'store'])->name('store');
+        Route::post('{sale}', [SaleController::class, 'store'])->name('show');
+        Route::delete('{sale}', [SaleController::class, 'destroy'])->name('delete');
     });
 });
 

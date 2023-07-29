@@ -25,8 +25,8 @@ class StockService {
         return $stock->delete();
     }
 
-    public function getStockStocks($stock) : Collection {
-        return $stock->stocks()->get();
+    public function getByParam($param) : Stock {
+        return $this->stock->where($param)->first();
     }
 
     public function getAllStocks() : Collection {

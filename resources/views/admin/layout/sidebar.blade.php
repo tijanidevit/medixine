@@ -85,6 +85,22 @@
                         </ul>
                     </li>
 
+                    <li class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i class="ri-archive-line"></i>
+                            <span>Sale</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="{{route('sale.index')}}">Sales</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('sale.create')}}">Add New Sale</a>
+                            </li>
+                        </ul>
+                    </li>
+
                     @if (auth()->user()->isAdmin())
                         <li class="sidebar-list">
                             <a class="sidebar-link sidebar-title" href="javascript:void(0)">

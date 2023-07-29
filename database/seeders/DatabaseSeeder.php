@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
 
         User::factory(5)->create(); //Add sub admin
 
-        $this->call(CategorySeeder::class);
-        $this->call(ProductSeeder::class);
-        $this->call(SettingSeeder::class);
-        $this->call(StockSeeder::class);
+        // $this->call(CategorySeeder::class);
+        // $this->call(ProductSeeder::class);
+        // $this->call(SettingSeeder::class);
+        // $this->call(StockSeeder::class);
     }
 }

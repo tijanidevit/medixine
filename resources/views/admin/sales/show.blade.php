@@ -30,7 +30,7 @@
                                     <th>Ordered quantity</th>
                                     <th>Remaining quantity</th>
                                     <th>Price</th>
-                                    {{-- <th>Option</th> --}}
+                                    <th>Option</th>
                                 </tr>
                             </thead>
 
@@ -46,7 +46,7 @@
                                     <td>{{$stock->remaining_quantity}}</td>
                                     <td>&#8358;{{$stock->price}}</td>
 
-                                    {{-- <td>
+                                    <td>
                                         <ul>
                                             <li title="Delete stock">
                                                 <form title="Delete stock" action="{{ route('stock.delete', $stock->id) }}" method="post">
@@ -58,9 +58,8 @@
                                                 </form>
                                             </li>
                                         </ul>
-                                    </td> --}}
+                                    </td>
                                 </tr>
-
                                 @empty
                                 <p>No stock added yet</p>
                                 @endforelse
