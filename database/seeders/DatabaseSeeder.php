@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Jendol Admin',
-            'email' => 'admin@medicine.com',
+            'email' => 'admin@jendol.com',
             'role' => UserRoleEnum::ADMIN,
         ]); //Add Admin
 

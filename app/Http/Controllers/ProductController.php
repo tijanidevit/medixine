@@ -18,6 +18,7 @@ class ProductController extends Controller
     public function index() : View
     {
         $products = $this->productService->getAllProducts();
+        // dd($products);
         return view('admin.products.index', compact('products'));
     }
 
@@ -33,10 +34,11 @@ class ProductController extends Controller
         return to_route('product.index')->with('success', 'Product added successfully!');
     }
 
-    public function show(Product $product)
+    public function show(Product $product) : View
     {
-        $this->productService->getProduct($product);
-        return to_route('product.index')->with('success', 'Product added successfully!');
+        $product = $this->productService->getProduct($product);
+        $stocks = $this->productService->getProductStocks($product);
+        return view('admin.products.show', compact('product','stocks'));
     }
 
     public function edit(Product $product)

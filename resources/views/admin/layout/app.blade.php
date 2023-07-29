@@ -28,3 +28,4 @@
 </body>
 </html>
 @include('admin.layout.scripts')
+@yield('extra-scripts')

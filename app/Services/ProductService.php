@@ -6,7 +6,7 @@ namespace App\Services;
 use App\Models\Product;
 use App\Traits\FileTrait;
 use App\Enums\UtilsEnum;
-use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProductService {
     use FileTrait;
@@ -20,10 +20,14 @@ class ProductService {
     }
 
     public function getProduct($product) : Product {
-        return $product->load('category');
+        return $product->load('stocks');
     }
 
-    public function getAllProducts() : LengthAwarePaginator {
-        return $this->product->with('category')->latest('id')->paginate(UtilsEnum::PAGINATE);
+    public function getProductStocks($product) : Collection {
+        return $product->stocks()->get();
+    }
+
+    public function getAllProducts() : Collection {
+        return $this->product->with('category')->latest('id')->get();
     }
 }

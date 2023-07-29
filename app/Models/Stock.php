@@ -89,4 +89,9 @@ class Stock extends Model
         $days = $interval->format('%a');
         return $days;
     }
+
+    public function getExpiryStatusAttribute():string
+    {
+        return $this->expiry_date > today() ? 'Valid' : 'Expired';
+    }
 }

@@ -1,7 +1,7 @@
 @extends('admin.layout.app')
 
 @section('title')
-    Add Product
+    Products
 @endsection
 
 @section('body')
@@ -24,7 +24,7 @@
                     <div class="alert btn-orange">{{session('success')}}</div>
                     @endif
                     <div class="table-responsive">
-                        <table class="table all-package theme-table table-product" id="table_id">
+                        <table class="table all-package theme-table table-product" id="myTable">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -95,11 +95,6 @@
                                 @endforelse
                             </tbody>
                         </table>
-                        <div class="mt-3 d-flex justify-content-end">
-                            <div class="mr-2">
-                                {{$products->links()}}
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

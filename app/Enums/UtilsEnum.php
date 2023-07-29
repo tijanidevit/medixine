@@ -3,5 +3,5 @@
 namespace App\Enums;
 
 enum UtilsEnum {
-    const PAGINATE = 4;
+    const PAGINATE = 15;
 }
