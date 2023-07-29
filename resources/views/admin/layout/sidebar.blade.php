@@ -105,14 +105,14 @@
                         <li class="sidebar-list">
                             <a class="sidebar-link sidebar-title" href="javascript:void(0)">
                                 <i class="ri-user-3-line"></i>
-                                <span>Sub admins</span>
+                                <span>Moderators</span>
                             <div class="according-menu"><i class="ri-arrow-right-s-line"></i></div></a>
                             <ul class="sidebar-submenu" style="display: none;">
                                 <li>
-                                    <a href="all-users.html" class="active">All users</a>
+                                    <a href="{{route('moderator.index')}}" class="active">All moderators</a>
                                 </li>
                                 <li>
-                                    <a href="add-new-user.html">Add new user</a>
+                                    <a href="{{route('moderator.create')}}">Add new moderators</a>
                                 </li>
                             </ul>
                         </li>

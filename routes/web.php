@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,9 @@ Route::prefix('login')->group(function () {
 });
 
 Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::get('',function () {
+        return to_route('dashboard');
+    })->name('home');
     Route::get('dashboard',[DashboardController::class,'getDashboardPage'])->name('dashboard');
     Route::get('search',[DashboardController::class,'getSearchResult'])->name('search');
     Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notifications');
@@ -76,6 +80,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('', [SaleController::class, 'store'])->name('store');
         Route::post('{sale}', [SaleController::class, 'store'])->name('show');
         Route::delete('{sale}', [SaleController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('moderators')->as('moderator.')->group(function () {
+        Route::get('', [UserController::class, 'index'])->name('index');
+        Route::get('new', [UserController::class, 'create'])->name('create');
+        Route::post('', [UserController::class, 'store'])->name('store');
+        Route::post('{user}', [UserController::class, 'store'])->name('show');
+        Route::delete('{user}', [UserController::class, 'destroy'])->name('delete');
     });
 });
 

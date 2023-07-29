@@ -94,6 +94,11 @@ class Stock extends Model
         return $this->expiry_date > today() ? 'Valid' : 'Expired';
     }
 
+    public function hasExpired():bool
+    {
+        return $this->expiry_date < today();
+    }
+
     // function setPurchaseDateAttribute ($value):void
     // {
     //     $this->attributes['purchase_date'] = Hash::make($value);

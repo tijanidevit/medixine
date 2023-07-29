@@ -3,6 +3,6 @@
 namespace App\Enums;
 
 enum UserRoleEnum {
-    const SUB_ADMIN = 'Sub Admin';
+    const SUB_ADMIN = 'Moderator';
     const ADMIN = 'Admin';
 }

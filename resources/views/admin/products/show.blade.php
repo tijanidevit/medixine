@@ -40,8 +40,8 @@
 
                                     <td>{{$stock->batch_no}}</td>
                                     <td>{{$stock->formatDate('purchase_date')}}</td>
-                                    <td @class(['text-danger' => $stock->expiry_status == 'Expired','text-success' => $stock->expiry_status != 'Expired'])>{{$stock->formatDate('expiry_date')}}</td>
-                                    <td @class(['text-danger' => $stock->expiry_status == 'Expired','text-success' => $stock->expiry_status != 'Expired'])>{{$stock->expiry_status}}</td>
+                                    <td @class(['text-danger' => $stock->hasExpired(),'text-success' => !$stock->hasExpired()])>{{$stock->formatDate('expiry_date')}}</td>
+                                    <td @class(['text-danger' => $stock->hasExpired(),'text-success' => !$stock->hasExpired()])>{{$stock->expiry_status}}</td>
                                     <td>{{$stock->quantity}}</td>
                                     <td>{{$stock->remaining_quantity}}</td>
                                     <td>&#8358;{{$stock->price}}</td>
