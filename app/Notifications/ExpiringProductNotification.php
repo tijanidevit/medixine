@@ -5,8 +5,10 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Messages\VonageMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Facades\Log;
 
 
 class ExpiringProductNotification extends Notification implements ShouldQueue
@@ -28,7 +30,8 @@ class ExpiringProductNotification extends Notification implements ShouldQueue
      */
     public function via(object $notifiable): array
     {
-        return ['mail'];
+        //'vonage',
+        return ['mail','database'];
     }
 
     /**
@@ -36,17 +39,18 @@ class ExpiringProductNotification extends Notification implements ShouldQueue
      */
     public function toMail(object $notifiable): MailMessage
     {
-        $content = "<ul>";
+        $content = "<ol>";
         foreach ($this->data['stocks'] as $stock) {
-            $content.= $stock->product?->name . " with batch number $stock->batch_no purchased on $stock->purchase date will expire on $stock->created_at. There are $stock->remaining_quantity items left";
+            $content.= "<li>" .$stock->product?->name . " with batch number $stock->batch_no purchased on $stock->purchase_date will expire on $stock->created_at. There are $stock->remaining_quantity items left </li>";
         }
 
-        $content .= "</ul>";
+        $content .= "</ol>";
 
+        Log::info("Email sending");
         return (new MailMessage)
                     ->greeting('Hello Jendol,')
-                    ->line(new HtmlString($content))
                     ->line($this->data['message'])
+                    ->line(new HtmlString($content))
                     ->action('Go to dashboard', route('dashboard'))
                     ->line('Thumps up!');
     }
@@ -54,20 +58,24 @@ class ExpiringProductNotification extends Notification implements ShouldQueue
 
     public function toArray(object $notifiable): array
     {
-        return [
-            'data' => json_encode($this->data)
-        ];
+        return $this->data;
+    }
+
+    public function toDatabase(object $notifiable): array
+    {
+        return $this->data;
     }
 
     public function toVonage(object $notifiable): VonageMessage
     {
+        Log::info("SMS sending");
         $content = "";
         foreach ($this->data['stocks'] as $stock) {
             $content.= $stock->product?->name.", ";
         }
 
-        $content .= "</ul>";
         return (new VonageMessage)
-                    ->content($data['message'].". $content");
+                    ->from('Jendol Alert System')
+                    ->content($this->data['message'].". $content");
     }
 }
