@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\ModeratorService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\User\AddUserRequest;
+use App\Http\Requests\User\AddModeratorRequest;
 
 class ModeratorController extends Controller
 {
@@ -24,7 +24,7 @@ class ModeratorController extends Controller
         return view('admin.moderators.create');
     }
 
-    public function store(AddUserRequest $request): RedirectResponse
+    public function store(AddModeratorRequest $request): RedirectResponse
     {
         $this->moderatorService->addModerator($request->validated());
         return to_route('moderator.index')->with('success', 'Moderator added successfully!');
