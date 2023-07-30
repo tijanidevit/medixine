@@ -24,10 +24,10 @@ use App\Http\Controllers\ModeratorController;
 Route::get('/', function () {
     return to_route('login');
     // return view('welcome');
-});
+})->name('welcome');
 
 
-Route::prefix('login')->group(function () {
+Route::prefix('login')->middleware('guest')->group(function () {
     Route::get('',[LoginController::class,'getLoginPage'])->name('login');
     Route::post('',[LoginController::class,'loginAction'])->name('loginAction');
 });
@@ -37,7 +37,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         return to_route('dashboard');
     })->name('home');
     Route::get('dashboard',[DashboardController::class,'getDashboardPage'])->name('dashboard');
-    Route::get('search',[DashboardController::class,'getSearchResult'])->name('search');
     Route::get('notidications',[DashboardController::class,'getSearchResult'])->name('notifications');
 
     // Route::get('settings',[SettingController::class,'getSettingsPage'])->name('settings');
@@ -54,6 +53,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::prefix('stocks')->as('stock.')->group(function () {
         Route::get('', [StockController::class, 'index'])->name('index');
+        Route::get('search',[StockController::class,'search'])->name('search');
         Route::get('new', [StockController::class, 'create'])->name('create');
         Route::post('', [StockController::class, 'store'])->name('store');
         Route::delete('{stock}', [StockController::class, 'destroy'])->name('delete');

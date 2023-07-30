@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <form class="form-inline search-full" action="{{route('search')}}" method="get">
+        <form class="form-inline search-full" action="{{route('stock.search')}}" method="get">
             <div class="form-group w-100">
                 <div class="Typeahead Typeahead--twitterUsers">
                     <div class="u-posRelative">
@@ -60,12 +60,14 @@
                         </div>
                     </div>
                     <ul class="profile-dropdown onhover-show-div">
-                        <li>
-                            <a href="{{route('setting.index')}}">
-                                <i data-feather="settings"></i>
-                                <span>Settings</span>
-                            </a>
-                        </li>
+                        @if (auth()->user()->isAdmin())
+                            <li>
+                                <a href="{{route('setting.index')}}">
+                                    <i data-feather="settings"></i>
+                                    <span>Settings</span>
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{route('logout')}}">
                                 <i data-feather="log-out"></i>

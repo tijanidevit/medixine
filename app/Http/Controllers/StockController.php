@@ -44,4 +44,10 @@ class StockController extends Controller
         $stock = $this->stockService->deleteStock($stock);
         return redirect()->back()->with('success', 'Stock deleted successfully!');
     }
+
+    public function search(String $param)
+    {
+        $stock = $this->stockService->searchStock($param);
+        return redirect()->back()->with('success', 'Stock deleted successfully!');
+    }
 }

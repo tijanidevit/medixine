@@ -6,6 +6,7 @@ use App\Traits\FileTrait;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use App\Enums\UserRoleEnum;
+use Illuminate\Support\Facades\Hash;
 
 class ModeratorService {
     use FileTrait;
@@ -14,13 +15,14 @@ class ModeratorService {
         $this->moderator = $this->user->where('role', UserRoleEnum::SUB_ADMIN);
     }
 
-    public function getAllModerators() : array|Collection {
+    public function getAllModerators() : array|Collection{
         return $this->moderator->orderBy('name')->get();
     }
 
     public function addModerator($data) : User {
         $data['image'] = $this->uploadFile('images/moderators/',$data['image']);
-        $data['added_by'] = auth()->id();
+        $data['password'] = Hash::make('password');
+        $data['role'] = UserRoleEnum::SUB_ADMIN;
         return $this->moderator->create($data);
     }
 

@@ -6,6 +6,7 @@ use App\Services\LoginService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -21,5 +22,10 @@ class LoginController extends Controller
             return to_route('dashboard');
        }
        return redirect()->back()->withErrors(['password' => 'Invalid password']);
+    }
+
+    function logout() : RedirectResponse {
+        Auth::logout();
+        return to_route('login');
     }
 }

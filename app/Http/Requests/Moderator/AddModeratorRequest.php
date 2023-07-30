@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Moderator;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,7 @@ class AddModeratorRequest extends FormRequest
     {
         return [
             'name' => 'required|string|unique:categories',
-            'email' => 'required|email|exists:users',
+            'email' => 'required|email|unique:users',
             'image' => 'required|file|mimetypes:image/png,image/jpg,image/jpeg,image/svg|max:5024',
         ];
     }

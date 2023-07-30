@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Services\ModeratorService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\User\AddModeratorRequest;
+use App\Http\Requests\Moderator\AddModeratorRequest;
 
 class ModeratorController extends Controller
 {
@@ -33,6 +33,6 @@ class ModeratorController extends Controller
     public function destroy(User $user)
     {
         $this->moderatorService->deleteModerator($user);
-        return to_route('user.index')->with('success', 'Moderator deleted successfully!');
+        return to_route('moderator.index')->with('success', 'Moderator deleted successfully!');
     }
 }
