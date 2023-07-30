@@ -14,6 +14,7 @@ class StockService {
     public function addStock($data) : Stock {
         $data['batch_no'] = Str::random(2). '-'. rand(1111111,999999);
         $data['added_by'] = auth()->id();
+        $data['remaining_quantity'] = $data['quantity'];
         return $this->stock->create($data);
     }
 
