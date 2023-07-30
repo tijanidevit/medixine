@@ -31,7 +31,7 @@ class ExpiringProductNotification extends Notification implements ShouldQueue
     public function via(object $notifiable): array
     {
         //'vonage',
-        return ['mail','database'];
+        return ['mail','vonage','database'];
     }
 
     /**
