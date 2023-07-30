@@ -42,7 +42,7 @@
                                 <label class="col-sm-3 col-form-label form-label-title">Product</label>
                                 <div class="col-sm-9">
                                     <select required class="js-example-basic-single w-100" name="product_id" value="{{old('name')}}">
-                                        <option selected disabled>Select Product</option>
+                                        <option value="" selected disabled>Select Product</option>
                                         @forelse ($products as $product)
                                             <option value="{{$product->id}}">{{$product->name}}</option>
                                         @empty

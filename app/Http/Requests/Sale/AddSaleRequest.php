@@ -4,6 +4,7 @@ namespace App\Http\Requests\Sale;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Services\StockService;
+use App\Models\Stock;
 
 class AddSaleRequest extends FormRequest
 {
@@ -24,10 +25,12 @@ class AddSaleRequest extends FormRequest
      */
     public function rules(): array
     {
+        // $quantity = Stock::firstWhere('id', $this->stock_id)?->remaining_quantity ?? 10000000;
         return [
             'stock_id' => 'required|exists:stocks,id',
             'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1|max:'. $this->stockService->getByParam(['id' => $this->stock_id])->remaining_quantity ,
+            // 'quantity' => 'required|integer|min:1|max:'. $quantity,
+            'quantity' => 'required|integer|min:1|max:'. $this->stockService->getByParam(['id' => $this->stock_id])->remaining_quantity,
         ];
     }
 

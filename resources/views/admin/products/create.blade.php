@@ -31,7 +31,7 @@
                                 <label class="col-sm-3 col-form-label form-label-title">Category</label>
                                 <div class="col-sm-9">
                                     <select required class="js-example-basic-single w-100" name="category_id" value="{{old('name')}}">
-                                        <option selected disabled>Select Category</option>
+                                        <option value=""  selected disabled>Select Category</option>
                                         @forelse ($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
                                         @empty
