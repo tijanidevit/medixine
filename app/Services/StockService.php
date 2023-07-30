@@ -32,4 +32,8 @@ class StockService {
     public function getAllStocks() : Collection {
         return $this->stock->with('product')->latest('id')->get();
     }
+
+    public function searchStock($searchQuery) : Collection {
+        return $this->stock->with('product')->where('batch_no','like',"%$searchQuery%")->latest('batch_no')->get();
+    }
 }

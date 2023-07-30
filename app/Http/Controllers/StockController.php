@@ -9,6 +9,7 @@ use App\Services\ProductService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Stock\AddStockRequest;
+use Illuminate\Http\Request;
 
 class StockController extends Controller
 {
@@ -35,7 +36,6 @@ class StockController extends Controller
     public function show(Stock $stock) : View
     {
         $stock = $this->stockService->getStock($stock);
-        $stocks = $this->stockService->getStockStocks($stock);
         return view('admin.stocks.show', compact('stock','stocks'));
     }
 
@@ -45,9 +45,9 @@ class StockController extends Controller
         return redirect()->back()->with('success', 'Stock deleted successfully!');
     }
 
-    public function search(String $param)
+    public function search(Request $request): View
     {
-        $stock = $this->stockService->searchStock($param);
-        return redirect()->back()->with('success', 'Stock deleted successfully!');
+        $stocks = $this->stockService->searchStock($request->q);
+        return view('admin.stocks.search', compact('stocks'))->with('success', 'Your search result');
     }
 }

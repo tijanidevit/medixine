@@ -9,6 +9,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SaleController;
 use App\Http\Controllers\ModeratorController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,10 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('', [SaleController::class, 'store'])->name('store');
         Route::post('{sale}', [SaleController::class, 'store'])->name('show');
         Route::delete('{sale}', [SaleController::class, 'destroy'])->name('delete');
+    });
+
+    Route::prefix('notifications')->as('notification.')->group(function () {
+        Route::get('', [NotificationController::class, 'index'])->name('index');
     });
 
     Route::prefix('moderators')->as('moderator.')->group(function () {

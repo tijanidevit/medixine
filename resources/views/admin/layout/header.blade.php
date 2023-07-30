@@ -22,7 +22,7 @@
                 <div class="Typeahead Typeahead--twitterUsers">
                     <div class="u-posRelative">
                         <input class="demo-input  form-control-plaintext w-100" type="text"
-                            placeholder="Search Batch Number" name="q" title="" autofocus>
+                            placeholder="Search Batch Number" name="q" {{old('q')}} title="" autofocus>
                         <i class="close-search" data-feather="x"></i>
                         <div class="spinner-border Typeahead-spinner" role="status">
                             <span class="sr-only">Loading...</span>
@@ -40,10 +40,12 @@
                     </span>
                 </li>
                 <li class="onhover-dropdown">
-                    <div class="notification-box">
-                        <i class="ri-notification-line"></i>
-                        <span class="badge rounded-pill badge-theme">4</span>
-                    </div>
+                    <a href="{{route('notification.index')}}">
+                        <div class="notification-box">
+                            <i class="ri-notification-line"></i>
+                            <span class="badge rounded-pill badge-theme">{{$notificationsCount}}</span>
+                        </div>
+                    </a>
                 </li>
 
                 <li>
